@@ -1,0 +1,114 @@
+@import "open-sans.css";
+@import "font-awesome.min.css";
+/*
+EUXICON - THD Customized Icons
+*/
+@font-face {
+    font-family: 'euxicon';
+    src:    url('fonts/euxicon.eot');
+    src:    url('fonts/euxicon.eot#iefix') format('embedded-opentype'),
+        url('fonts/euxicon.ttf') format('truetype'),
+        url('fonts/euxicon.woff') format('woff'),
+        url('fonts/euxicon.svg#euxicon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'euxicon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased!important;
+    -moz-osx-font-smoothing: grayscale!important;
+}
+.icon-my_projects:before {
+    content: "\e91b";
+}
+.icon-email:before {
+    content: "\e91a";
+}
+.icon-log_out:before {
+    content: "\e919";
+}
+.icon-t2c_error:before {
+    content: "\e916";
+}
+.icon-t2c_pending:before {
+    content: "\e917";
+}
+.icon-t2c_success:before {
+    content: "\e918";
+}
+.icon-gas_rewards_2:before {
+    content: "\e915";
+}
+.icon-fuel_rewards:before {
+    content: "\e914";
+}
+.icon-my_numbers:before {
+    content: "\e90c";
+}
+.icon-dashboard:before {
+    content: "\e900";
+}
+.icon-appliance_ordering:before {
+    content: "\e901";
+}
+.icon-connected_services:before {
+    content: "\e902";
+}
+.icon-credit_card_services:before {
+    content: "\e903";
+}
+.icon-delivery_tracs:before {
+    content: "\e904";
+}
+.icon-dms:before {
+    content: "\e905";
+}
+.icon-esvs:before {
+    content: "\e906";
+}
+.icon-gift_cards:before {
+    content: "\e907";
+}
+.icon-hd_com:before {
+    content: "\e908";
+}
+.icon-hd_quote_center:before {
+    content: "\e909";
+}
+.icon-heat_map:before {
+    content: "\e90a";
+}
+.icon-my_apron:before {
+    content: "\e90b";
+}
+.icon-pro_paint:before {
+    content: "\e90d";
+}
+.icon-pro_xtra:before {
+    content: "\e90e";
+}
+.icon-pro_direct:before {
+    content: "\e90f";
+}
+.icon-spos:before {
+    content: "\e910";
+}
+.icon-tool_rental:before {
+    content: "\e911";
+}
+.icon-top_30:before {
+    content: "\e912";
+}
+.icon-volumne_value_program:before {
+    content: "\e913";
+}

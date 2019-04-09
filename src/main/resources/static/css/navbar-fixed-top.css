@@ -1,0 +1,21 @@
+body {
+  padding-top: 120px;
+}
+
+.headercollapse {
+    background-color: #EEEEEE;
+}
+
+.bodycollapse {
+	border: lightgray 1px solid;
+	padding: 3px;
+	margin: 0px;
+}
+
+.md-headline, .md-button, .md-text-field, .brand, .nav>li>a{
+	font-weight: 400 !important;
+}
+
+label, .md-button, .md-text-field{
+	font-size: 18px !important;
+}

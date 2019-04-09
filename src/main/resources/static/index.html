@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html data-ng-app="mainMdl">
+
+<head>
+<meta charset="ISO-8859-1">
+<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"> -->
+<title>Monitoring Tool</title>
+<link rel="stylesheet" href="fonts/open-sans.css">
+<link rel="stylesheet"
+	href="app/bower_components/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="app/bower_components/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="app/bower_components/font-awesome-4.3.0/css/font-awesome.css">
+<link rel="stylesheet"
+	href="app/bower_components/angular-block-ui/angular-block-ui.min.css" />
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css" /> -->
+<link rel="stylesheet" href="app/bower_components/nvd3/nv.d3.min.css" />
+
+<link rel="stylesheet" href="css/ux-custom.css">
+<link rel="stylesheet" href="css/navbar-fixed-top.css">
+<link rel="stylesheet"
+	href="app/bower_components/angular-block-ui/angular-block-ui.min.css" />
+
+
+<!--  <script>
+        document.write('<base href="' + document.location + '" />');
+    </script> -->
+
+<script src="app/js/angular/angular.min.js"></script>
+
+<script>
+	function zoom() {
+		document.body.style.zoom = "65%"
+	}
+	function autoRefresh() {
+
+		window.location.reload();
+	}
+
+	/* setInterval('autoRefresh()', 300000);  */
+</script>
+<style>
+.navbar {
+	min-height: 0px;
+}
+
+.node {
+	cursor: pointer;
+}
+
+.node circle {
+	fill: #fff;
+	stroke: steelblue;
+	stroke-width: 3px;
+}
+
+.node text {
+	font: 12px sans-serif;
+}
+
+.link {
+	fill: none;
+	stroke: #ccc;
+	stroke-width: 2px;
+}
+
+.tree_gray {
+	background: #999;
+}
+
+.nv-point {
+	stroke-opacity: 1 !important;
+	stroke-width: 10px;
+	fill-opacity: 1 !important;
+}
+
+.body_image {
+	background-image: url("images/Monitoring Background.jpg");
+	/* background-color: #cccccc; */
+	background-repeat: no-repeat;
+	/* background-attachment: fixed; */
+	background-size: 100% 100%;
+	/* background-position: center; */
+}
+
+form.tab-form-demo .tab-pane {
+	margin: 20px 20px;
+}
+</style>
+
+</head>
+
+<body data-ng-controller="locationsCtrl" onload="zoom()">
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button"
+					data-ng-click="isNavCollapsed = !isNavCollapsed"
+					class="navbar-toggle collapsed" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+				</button>
+				<div class="navbar-brand">
+					<a data-ng-click="$event.preventDefault();loadMainPage()"><img
+						src="images/com-hd-logo.png" width="50"> <span class="brand"
+						style="color: #fff;">Monitoring Dashboard - Home Services</span></a>
+					<!-- <div class="brand" style="font-size: 15px;">Monitoring Dashboard will be available between 8AM EST to 6PM EST</div> -->
+				</div>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" uib-collapse="!isNavCollapsed">
+				<ul class="nav navbar-nav">
+					<!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+					<li><a href="#/"></a></li>
+
+				</ul>
+				<!-- <ul class="navbar-brand navbar-right">
+
+
+					<b> Valet Dashboard : </b>
+					<font color="black"> <select style="width: 300px;"
+						onchange="window.open(this.value);">
+							<option value="#" selected>--Select--</option>
+							<option
+								value="https://health-platform.cloud-services.homedepot.com/reports/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxCdXNpbmVzc1VuaXQYgICAoP37iAkM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxTZXJ2aWNlR3JvdXAYgICA9rLbgwoM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchQLEgdTZXJ2aWNlGICAgN_wxsoIDA">ICONX</option>
+							<option
+								value="https://health-platform.cloud-services.homedepot.com/reports/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxCdXNpbmVzc1VuaXQYgICAoP37iAkM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxTZXJ2aWNlR3JvdXAYgICA9rLbgwoM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchQLEgdTZXJ2aWNlGICAgN_XsYcKDA">RenoWalk</option>
+							<option
+								value="https://health-platform.cloud-services.homedepot.com/reports/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxCdXNpbmVzc1VuaXQYgICAoP37iAkM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxTZXJ2aWNlR3JvdXAYgICA9rLbgwoM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchQLEgdTZXJ2aWNlGICAgL-giI4LDA">RapidPass</option>
+							<option
+								value="https://health-platform.cloud-services.homedepot.com/reports/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxCdXNpbmVzc1VuaXQYgICAoP37iAkM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchkLEgxTZXJ2aWNlR3JvdXAYgICA9rLbgwoM/ahNzfmhkLWNsb3VkLXNlcnZpY2VzchQLEgdTZXJ2aWNlGICAgJX5g5sKDA">HS_EPA
+								</option-->
+				</select> </font>
+				</ul>
+				-->
+
+			</div>
+		</div>
+
+	</nav>
+	<div data-ng-view style="font-weight: bold; font-size: large;"></div>
+
+
+	<script src="app/js/angular-route/angular-route.min.js"></script>
+	<script src="app/js/angular/angular-animate.min.js"></script>
+	<script src="app/js/angular/angular-sanitize.min.js"></script>
+	<script
+		src="app/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script
+		src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="app/bower_components/dialog/dialogs.js"></script>
+	<script
+		src="app/bower_components/angular-block-ui/angular-block-ui.min.js"></script>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
+    <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.5/dist/angular-nvd3.js"></script> -->
+
+	<script src="app/bower_components/nvd3/d3.min.js"></script>
+	<script src="app/bower_components/nvd3/nv.d3.min.js"></script>
+	<script src="app/bower_components/nvd3/angular-nvd3.js"></script>
+
+	<script src="app/app.js"></script>
+
+	<script
+		src="app/core/iconxmobws_dashboard/iconxmobws_dashboard.service.js"></script>
+	<script
+		src="app/core/iconxmobws_dashboard/iconxmobws_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/iconxmobws_dashboard/iconxmobws_dashboard.ctrl.js"></script>
+
+
+	<script
+		src="app/core/iconxpayments_dashboard/iconxpayments_dashboard.service.js"></script>
+	<script
+		src="app/core/iconxpayments_dashboard/iconxpayments_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/iconxpayments_dashboard/iconxpayments_dashboard.ctrl.js"></script>
+
+	<script src="app/core/iconx_dashboard/iconx_dashboard.service.js"></script>
+	<script
+		src="app/core/iconx_dashboard/iconx_dashboard_chartOptions.service.js"></script>
+	<script src="app/core/iconx_dashboard/iconx_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/documentservice_dashboard/documentservice_dashboard.service.js"></script>
+	<script
+		src="app/core/documentservice_dashboard/documentservice_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/documentservice_dashboard/documentservice_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/smhdemasterdataservice_dashboard/smhdemasterdataservice_dashboard.service.js"></script>
+	<script
+		src="app/core/smhdemasterdataservice_dashboard/smhdemasterdataservice_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/smhdemasterdataservice_dashboard/smhdemasterdataservice_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/ssshWebservices_dashboard/ssshWebservices_dashboard.service.js"></script>
+	<script
+		src="app/core/ssshWebservices_dashboard/ssshWebservices_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/ssshWebservices_dashboard/ssshWebservices_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/hsHdeEmailService_dashboard/hsHdeEmailService_dashboard.service.js"></script>
+	<script
+		src="app/core/hsHdeEmailService_dashboard/hsHdeEmailService_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/hsHdeEmailService_dashboard/hsHdeEmailService_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/appointmentSchedulerService_dashboard/appointmentSchedulerService_dashboard.service.js"></script>
+	<script
+		src="app/core/appointmentSchedulerService_dashboard/appointmentSchedulerService_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/appointmentSchedulerService_dashboard/appointmentSchedulerService_dashboard.ctrl.js"></script>
+
+
+	<script src="app/core/iconweb_dashboard/iconweb_dashboard.service.js"></script>
+	<script
+		src="app/core/iconweb_dashboard/iconweb_dashboard_chartOptions.service.js"></script>
+	<script src="app/core/iconweb_dashboard/iconweb_dashboard.ctrl.js"></script>
+
+
+	<script
+		src="app/core/iconxdocws_dashboard/iconxdocws_dashboard.service.js"></script>
+	<script
+		src="app/core/iconxdocws_dashboard/iconxdocws_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/iconxdocws_dashboard/iconxdocws_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/hdiPciWeb_dashboard/hdiPciWeb_dashboard.service.js"></script>
+	<script
+		src="app/core/hdiPciWeb_dashboard/hdiPciWeb_dashboard_chartOptions.service.js"></script>
+	<script src="app/core/hdiPciWeb_dashboard/hdiPciWeb_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/purgedOrderRetrieval_dashboard/purgedOrderRetrieval_dashboard.service.js"></script>
+	<script
+		src="app/core/purgedOrderRetrieval_dashboard/purgedOrderRetrieval_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/purgedOrderRetrieval_dashboard/purgedOrderRetrieval_dashboard.ctrl.js"></script>
+
+	<script
+		src="app/core/taczDocumentViewerWeb_dashboard/taczDocumentViewerWeb_dashboard.service.js"></script>
+	<script
+		src="app/core/taczDocumentViewerWeb_dashboard/taczDocumentViewerWeb_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/taczDocumentViewerWeb_dashboard/taczDocumentViewerWeb_dashboard.ctrl.js"></script>
+	
+	<script
+		src="app/core/myinstall_dashboard/myinstall_dashboard.service.js"></script>
+	<script
+		src="app/core/myinstall_dashboard/myinstall_dashboard_chartOptions.service.js"></script>
+	<script
+		src="app/core/myinstall_dashboard/myinstall_dashboard.ctrl.js"></script>
+	<!--  <script src="app/core/monitor_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/monitor_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/monitor_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/renowalk_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/renowalk_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/renowalk_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/rapidpass_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/rapidpass_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/rapidpass_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/ftps_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/ftps_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/ftps_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+     <script src="app/core/sales_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/sales_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/sales_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+      <script src="app/core/hdconnect_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/hdconnect_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/hdconnect_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/hde_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/hde_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/hde_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/poupdate_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/poupdate_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/poupdate_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/lead_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/lead_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/lead_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/altc_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/altc_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/altc_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/ewr_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/ewr_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/ewr_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/hrs_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/hrs_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/hrs_dashboard/monitor_dashboard.ctrl.js"></script>
+    
+    <script src="app/core/ticket_dashboard/monitor_dashboard.service.js"></script>
+    <script src="app/core/ticket_dashboard/monitor_dashboard_chartOptions.service.js"></script>
+    <script src="app/core/ticket_dashboard/monitor_dashboard.ctrl.js"></script>
+ -->
+</body>
+</html>

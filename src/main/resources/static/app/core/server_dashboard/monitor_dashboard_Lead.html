@@ -1,0 +1,196 @@
+ <html>
+ <head>
+ <style>
+	#customers {
+	    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    font-size:large;
+	    border-collapse: collapse;
+	    width: 100%;
+	    table-layout: fixed;
+	}
+	
+	#customers td, #customers th {
+	    border: 1px solid #ddd;
+	    padding: 8px;
+	    word-wrap:break-word;
+	}
+	
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#customers tr:hover {background-color: #ddd;}
+	
+	#customers th {
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	    text-align: left;
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	</style>
+ </head>
+ <body>
+  	<h1><b><a href="./#/ICONX">ICONX Application</a></b></h1>
+ 	<table id="customers">
+ 		<th>Application</th>
+ 		<th>URL</th>
+ 		<th>Parameter</th>
+ 		<th>Latency Error(ms)</th>
+ 		<th>Latency Warning(ms)</th>
+ 		<th>Error Warning(ms)</th>
+ 		<th>Error(ms)</th>
+ 		<tr>
+ 			<td>
+ 				BaseTables (<a href="https://webapps.homedepot.com/gridstats/?type=Application&value=iconxTC7&container=mmhsiconxsvcsTC7&module=ContainerInfo&server=gata0504" target="_blank">GridStats</a>)
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/iconxTC7/v1/poworklist/summary 				
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				ApigeeStatus
+ 			</td>
+ 			<td>
+ 				https://api.hs.homedepot.com/iconx/v1/auth/accesstoken?grant_type=client_credentials
+ 			</td>
+ 			<td>
+ 				poStatus=Customer canceled
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				OrderDetails
+ 			</td>
+ 			<td>
+ 				http://st0121.homedepot.com/MMSVCOSWeb/rs/order/getOrderDetails
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				Documents
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/ICONXDOCWSTC7/v3/documents/get/1165a45417722f00
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				ContentManager
+ 			</td>
+ 			<td>
+ 				https://webapps.homedepot.com/ECMIconX/ECMLookupRetrievalService/ECMRetrieve?ECMAppContext=Icon&version=1&GetRetrieveReqJson=%7B%22strAppId%22%3Anull%2C%22strObjId%22%3A%221165a45417722f00%22%7D
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				PTM
+ 			</td>
+ 			<td>
+ 				http://st0121.homedepot.com:12170/ptm/api/appInfo 
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				LeadInfo
+ 			</td>
+ 			<td>
+ 				https://sfiprext.homedepot.com/eai_anon_enu/start.swe?SWEExtSource=SecureWebService&SWEExtCmd=Execute
+ 			</td>
+ 			<td>
+ 				XXS9611,XMLXXS9611,0,0
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				PaymentPage
+ 			</td>
+ 			<td>
+ 				https://thdapi.homedepot.com/ps-gateway/index.html
+ 			</td>
+ 			<td>
+ 				XXS9611,XMLXXS9611,0,0
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				CustInfo
+ 			</td>
+ 			<td>
+ 				https://ps-gateway.apps.homedepot.com/api/custInfo/health
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>	
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				CreditAuth
+ 			</td>
+ 			<td>
+ 				https://ps-gateway.apps.homedepot.com/api/creditAuth/health
+ 			</td>
+ 			<td>
+ 				
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 	</table>
+ 	
+ 	<!-- Iframe src="https://webapps.homedepot.com/gridstats/?type=Application&value=iconxTC7&container=mmhsiconxsvcsTC7&module=ContainerInfo&server=gata0504" height="500" width="1700"></iframe-->
+ </body>
+ </html>
+  

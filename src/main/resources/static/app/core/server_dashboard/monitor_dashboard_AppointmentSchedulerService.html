@@ -1,0 +1,169 @@
+ <html>
+ <head>
+ <style>
+	#customers {
+	    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    font-size:large;
+	    border-collapse: collapse;
+	    width: 100%;
+	    table-layout: fixed;
+	}
+	
+	#customers td, #customers th {
+	    border: 1px solid #ddd;
+	    padding: 8px;
+	    word-wrap:break-word;
+	}
+	
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#customers tr:hover {background-color: #ddd;}
+	
+	#customers th {
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	    text-align: left;
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	</style>
+ </head>
+ <body>
+  	<h1><b><a href="./#/AppointmentSchedulerService">AppointmentSchedulerService</a></b></h1>
+ 	<table id="customers">
+ 		<th>Application</th>
+ 		<th>URL</th>
+ 		<th>Parameter</th>
+ 		<th>Latency Error(ms)</th>
+ 		<th>Latency Warning(ms)</th>
+ 		<th>Error Warning(ms)</th>
+ 		<th>Error(ms)</th>
+ 		<tr>
+ 			<td>
+ 				LexisNexisComplaint
+ 			</td>
+ 			<td>
+ 				https://mmhsappointmentschedulerservicepcf.apps-np.homedepot.com/MMHSAppointmentSchedulerService/LexisNexisImageServlet?badgeNumber=I2943393-001&lastName=Cascio&checkComplianceFlag=y 				
+ 			</td>
+ 			<td>
+ 				NA
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		
+ 		<tr>
+ 			<td>
+ 				LexisNexisNonComplaint
+ 			</td>
+ 			<td>
+ 				https://mmhsappointmentschedulerservicepcf.apps-np.homedepot.com/MMHSAppointmentSchedulerService/LexisNexisImageServlet?badgeNumber=I2943393-001&lastName=Cascio&checkComplianceFlag=N 				
+ 			</td>
+ 			<td>
+ 				NA
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		
+ 		
+ 		<!-- <tr>
+ 			<td>
+ 				REPLICATION
+ 			</td>
+ 			<td>
+ 				http://replicate-order.extapps.homedepot.com/health
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				SKU
+ 			</td>
+ 			<td>
+ 				http://st0121.homedepot.com/MMSVCOSWeb/rs/ous/getSKUList
+ 			</td>
+ 			<td>
+ 				<skuLookupRequest><LangCd>en_US</LangCd><StrNbr>0121</StrNbr><SkuUpcList><SkuUpc>1002848381</SkuUpc></SkuUpcList><SkuTypeCd>N</SkuTypeCd><SkuTypeCd>A</SkuTypeCd><SkuTypeCd>C</SkuTypeCd><SkuTypeCd>L</SkuTypeCd><SkuTypeCd>M</SkuTypeCd><SkuTypeCd>S</SkuTypeCd><SkuTypeCd>I</SkuTypeCd><isInctvSKUChkRqrd>false</isInctvSKUChkRqrd></skuLookupRequest>
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				PRICING
+ 			</td>
+ 			<td>
+ 				https://origin-api.gcp-prod.homedepot.com/retails/pricing/v1/skus/1002848381/store/121
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				POCOUNT /AMT
+ 			</td>
+ 			<td>
+ 				SELECT 
+                com_ord.cust_ord_id,
+                com_ord.ord_crt_dt,
+                cust_ord.str_nbr,
+                cust_ord.cust_ord_nbr,
+                instal.mvndr_nbr,
+                instal.po_nbr
+				FROM    prhdb.comt_cust_ord_xref com_ord,
+                        prhdb.cust_ord cust_ord,
+                        prhdb.instl instal
+				WHERE
+                                com_ord.cust_ord_nbr = cust_ord.cust_ord_nbr
+                AND com_ord.str_nbr = cust_ord.str_nbr
+                AND cust_ord.str_nbr = instal.str_nbr
+                AND cust_ord.cust_ord_nbr = instal.cust_ord_nbr
+                AND com_ord.last_upd_pgm_id = 'ATTCH'
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				COMOrders
+ 			</td>
+ 			<td>
+ 				http://multichannel-custom.homedepot.com/COMOrder/rs/getOrderDetail
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr> -->
+ 	</table>
+ 	
+ 	<!-- Iframe src="https://webapps.homedepot.com/gridstats/?type=Application&value=iconxTC7&container=mmhsiconxsvcsTC7&module=ContainerInfo&server=gata0504" height="500" width="1700"></iframe-->
+ </body>
+ </html>
+  

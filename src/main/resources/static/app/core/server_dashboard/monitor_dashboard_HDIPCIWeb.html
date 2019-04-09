@@ -1,0 +1,151 @@
+  <html>
+ <head>
+ <style>
+	#customers {
+	    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    font-size:large;
+	    border-collapse: collapse;
+	    width: 100%;
+	    table-layout: fixed;
+	}
+	
+	#customers td, #customers th {
+	    border: 1px solid #ddd;
+	    padding: 8px;
+	    word-wrap:break-word;
+	}
+	
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#customers tr:hover {background-color: #ddd;}
+	
+	#customers th {
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	    text-align: left;
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	</style>
+ </head>
+ <body>
+  	<h1><b><a href="./#/HDIPCIWeb">HDIPCIWeb</a></b></h1>
+ 	<table id="customers">
+ 		<th>Application</th>
+ 		<th>URL</th>
+ 		<th>Parameter</th>
+ 		<th>Latency Error(ms)</th>
+ 		<th>Latency Warning(ms)</th>
+ 		<th>Error Warning(ms)</th>
+ 		<th>Error(ms)</th>
+ 		<tr>
+ 			<td>
+ 				PaymentInfoLookup
+ 			</td>
+ 			<td>
+ 				https://mmhshdipciwebpcf.apps-np.homedepot.com/MMHSHDIPCIWeb/rs/crm/paymentInfoLookup 				
+ 			</td>
+ 			<td>
+ 				{"lead_id": "F0830141","lastName": "htrsdcg","leadId": "fxrf788"}
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				StagedPaymentLookup
+ 			</td>
+ 			<td>
+ 				https://mmhshdipciwebpcf.apps-np.homedepot.com/MMHSHDIPCIWeb/rs/crm/stagedPaymentLookup?leadId=F5091131
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				PaymentLookUp
+ 			</td>
+ 			<td>
+ 				https://mmhshdipciwebpcf.apps-np.homedepot.com/MMHSHDIPCIWeb/rs/crm/paymentLookup?leadId=F4315523
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<!--  <tr>
+ 			<td>
+ 				PRICING
+ 			</td>
+ 			<td>
+ 				https://origin-api.gcp-prod.homedepot.com/retails/pricing/v1/skus/1002848381/store/121
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				POCOUNT /AMT
+ 			</td>
+ 			<td>
+ 				SELECT 
+                com_ord.cust_ord_id,
+                com_ord.ord_crt_dt,
+                cust_ord.str_nbr,
+                cust_ord.cust_ord_nbr,
+                instal.mvndr_nbr,
+                instal.po_nbr
+				FROM    prhdb.comt_cust_ord_xref com_ord,
+                        prhdb.cust_ord cust_ord,
+                        prhdb.instl instal
+				WHERE
+                                com_ord.cust_ord_nbr = cust_ord.cust_ord_nbr
+                AND com_ord.str_nbr = cust_ord.str_nbr
+                AND cust_ord.str_nbr = instal.str_nbr
+                AND cust_ord.cust_ord_nbr = instal.cust_ord_nbr
+                AND com_ord.last_upd_pgm_id = 'ATTCH'
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				COMOrders
+ 			</td>
+ 			<td>
+ 				http://multichannel-custom.homedepot.com/COMOrder/rs/getOrderDetail
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr> -->
+ 	</table>
+ 	
+ 	<!-- Iframe src="https://webapps.homedepot.com/gridstats/?type=Application&value=iconxTC7&container=mmhsiconxsvcsTC7&module=ContainerInfo&server=gata0504" height="500" width="1700"></iframe-->
+ </body>
+ </html>
+  

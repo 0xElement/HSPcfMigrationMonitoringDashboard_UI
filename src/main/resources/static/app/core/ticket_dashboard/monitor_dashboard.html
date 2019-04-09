@@ -1,0 +1,60 @@
+ <div class="row">
+    	<div style="overflow: auto;white-space: nowrap; user-select: none;color:#fff;font-weight:bold;line-height:46px; max-width:100% ;min-height:46px; background-color:#333333;float:center;">
+    		<table  width="100%">
+    		<tr width="100%">
+    			<td width="8%" align="center"><img src="{{ctrl.iconXStatus}}" height="50" width="50"><a href="./#/ICONX">ICONX</a></td>
+        		<td width="8%" align="center"> <img src="{{ctrl.renoWalkStatus}}" height="50" width="50" ><a href="./#/RenoWalk">RenoWalk</a></td>
+        		<td width="8%" align="center"><img src="{{ctrl.rapidPassStatus}}" height="50" width="50"><a href="./#/RapidPass">RapidPass</a></td>
+        		<td width="8%" align="center"><img src="{{ctrl.hdConnectStatus}}" height="50" width="50" ><a href="./#/HDConnect">HDConnect </a></td>
+        		<td width="8%"  align="center"><img src="{{ctrl.leadStatus}}" height="50" width="50" ><a href="./#/LeadMgmt">LeadMgmt </a></td>
+        		<td width="8%" align="center"><img src="{{ctrl.ftpStatus}}" height="50" width="50" ><a href="./#/FTPS">HDI Int</a></td>
+        		<td width="8%" align="center"><img src="{{ctrl.hdeStatus}}" height="50" width="50" ><a href="./#/HDI">HDE Dashboard</a></td>
+        		<td width="8%" align="center"><img src="images/Green.png" height="50" width="50" ><a href="./#/POUpdate">POUpdate</a></td>
+        		<td width="8%" align="center"><img src="{{ctrl.ewrApp}}" height="50" width="50" ><a href="./#/./#/EWRApp">Env Work Rules</a></td>
+        		<td width="8%" align="center"><img src="{{ctrl.altc}}" height="50" width="50" ><a href="./#/ALTC">ALTC</a></td>
+        		<td width="8%" align="center"><img src="images/Green.png" height="50" width="50" ><a href="./#/HRSApps">HRSApps</a></td>
+        		<td width="8%" bgcolor="#D1D0CE" align="center"><img src="{{ctrl.ticketStatus}}" height="50" width="50" ><a href="./#/Tickets">Tickets</a></td>
+        		</tr>
+        	</table>
+    		</div>
+     </div>
+     <div style=" user-select: none;font-weight:bold;line-height:46px; max-width:100% ;min-height:46px; background-color:#F5F5F5;float:center;">
+    			<table  width="97%" align="right">
+    			
+    		<tr width="100%" align="right">
+    		
+        		</tr>
+        		<tr>
+        			<td>
+        				Status :
+        				<img src="images/Green.png" height="50" width="50" > Tickets <10 days Old &nbsp;
+	        			<img src="images/Red.png" height="50" width="50" > Tickets > 10 days Old
+	    			<td>
+        		</tr>
+             </tr>		
+        	</table>
+    		</div>
+     <table width="100%" align="right">
+     	<tr>
+     		
+     			<h3 style="color:black;font-weight:bold;line-height:20px;min-height:46px;text-shadow: 0px 0px;margin-bottom:5px; background-color: #E6E6E6;float:center;">{{ctrl.selectedApp}}</h3>
+         		<div ng-if="ctrl.selectedApp=='TRANSFER summary'" height: auto; style="width:2400px;  overflow: auto;"><div ng-bind-html="ctrl.sibelAppTransferTickets"></div></div>
+         		<div ng-if="ctrl.selectedApp=='INBOX-1 summary'" height: auto; style="width:2400px;  overflow: auto;"><div ng-bind-html="ctrl.sibelAppTickets"></div></div>
+         		<div ng-if="ctrl.selectedApp=='INBOX-2 summary'" style="width:2400px;  overflow: auto;" height: auto;><div ng-bind-html="hdConnectTickets"></div></div>
+         		<div ng-if="ctrl.selectedApp=='INBOX-3 summary'" style="width:2400px; overflow: auto;" height: auto;><div ng-bind-html="ctrl.hsSupportTickets"></div></div>
+         		<div ng-if="ctrl.selectedApp=='INBOX-4 summary'"  style="width:2400px;  overflow: auto;" height: auto;><div ng-bind-html="ctrl.sibelInfraTickets"></div></div></div>
+         		<div ng-if="ctrl.selectedApp=='INBOX-5 summary'" style="width:2400px;  overflow: auto;"><div ng-bind-html="ctrl.sibelSecurityTickets"></div></div>
+         		<div ng-if="ctrl.selectedApp=='TINBOX-6 summary'" style="width:2400px;  overflow: auto;"><div ng-bind-html="ctrl.thunderheadTickets"></div></div>
+         		<div ng-if="ctrl.selectedApp=='INBOX-7 summary'" style="width:2400px;  overflow: auto;"><div ng-bind-html="ctrl.install2GoTickets"></div> </div>
+     		
+     	</tr>
+     </table>
+    <div class="row">
+         </div>
+    	    <div data-ng-if="ctrl.treeData.length > 0">
+                <collapsible-tree data="ctrl.treeData"></collapsible-tree>
+            </div>
+        </div>
+    </div>
+   
+ 

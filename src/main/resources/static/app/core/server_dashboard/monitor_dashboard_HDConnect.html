@@ -1,0 +1,106 @@
+ <html>
+ <head>
+ <style>
+	#customers {
+	    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    font-size:large;
+	    border-collapse: collapse;
+	    width: 100%;
+	    table-layout: fixed;
+	}
+	
+	#customers td, #customers th {
+	    border: 1px solid #ddd;
+	    padding: 8px;
+	    word-wrap:break-word;
+	}
+	
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#customers tr:hover {background-color: #ddd;}
+	
+	#customers th {
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	    text-align: left;
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	</style>
+ </head>
+ <body>
+  	<h1><b><a href="./#/HDConnect">HDConnect Application</a></b></h1>
+ 	<table id="customers">
+ 		<th>Application</th>
+ 		<th>URL</th>
+ 		<th>Parameter</th>
+ 		<th>Latency Error(ms)</th>
+ 		<th>Latency Warning(ms)</th>
+ 		<th>Error Warning(ms)</th>
+ 		<th>Error(ms)</th>
+ 		<tr>
+ 			<td>
+ 				LaunchHDConnect
+ 			</td>
+ 			<td>
+ 				https://hdconnect.homedepot.com/_layouts/HD.Connect/Login/HDLogin.aspx?ReturnUrl=%2f_layouts%2fAuthenticate.aspx%3fSource%3d%252F&Source=%2F 				
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				LoginNow
+ 			</td>
+ 			<td>
+ 				https://thdfed.homedepot.com/adfs/ls/?wa=wsignin1.0&wtrealm=urn%3ahdconnect_PR%3aADFS&wctx=https%3a%2f%2fhdconnect.homedepot.com%2f_layouts%2fAuthenticate.aspx%3fSource%3d%252F
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				THDPassport
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/MYTHDPassport/loginthd.html
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				PartnerProfile
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/VendorDataManagement/ws/user/getUserDetailsByUserId
+ 			</td>
+ 			<td>
+ 				Langcode='en_US,isNewWebService='false',includeAppWithNoURL=1,data='<PartnerGuardianRequest> </<PartnerGuardianRequest>'
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 	</table>
+ 	
+ 	<!-- Iframe src="https://webapps.homedepot.com/gridstats/?type=Application&value=iconxTC7&container=mmhsiconxsvcsTC7&module=ContainerInfo&server=gata0504" height="500" width="1700"></iframe-->
+ </body>
+ </html>
+  

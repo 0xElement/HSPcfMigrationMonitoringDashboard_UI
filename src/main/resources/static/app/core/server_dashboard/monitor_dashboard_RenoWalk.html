@@ -1,0 +1,241 @@
+ <html>
+ <head>
+ <style>
+	#customers {
+	    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    font-size:large;
+	    border-collapse: collapse;
+	    width: 100%;
+	    table-layout: fixed;
+	}
+	
+	#customers td, #customers th {
+	    border: 1px solid #ddd;
+	    padding: 8px;
+	    word-wrap:break-word;
+	}
+	
+	#customers tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#customers tr:hover {background-color: #ddd;}
+	
+	#customers th {
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	    text-align: left;
+	    background-color: #4CAF50;
+	    color: white;
+	}
+	</style>
+ </head>
+ <body>
+  	<h1><b><a href="./#/Reno">RenoWalk Application</a></b></h1>
+ 	<table id="customers">
+ 		<th>Application</th>
+ 		<th>URL</th>
+ 		<th>Parameter</th>
+ 		<th>Latency Error(ms)</th>
+ 		<th>Latency Warning(ms)</th>
+ 		<th>Error Warning(ms)</th>
+ 		<th>Error(ms)</th>
+ 		<tr>
+ 			<td>
+ 				ProXtraLogin 
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/CustRecogServices/prox/proauth/authentication/login 				
+ 			</td>
+ 			<td>
+ 				username= ? ,password=?
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				RenoWalkDL
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/RenoWalk/download
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				RenoWalkLiteDL
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/RenoWalk/download_lite
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				Azure
+ 			</td>
+ 			<td>
+ 				https://renoqa.blob.core.windows.net/renowalkpropertyphotos/21039/Lafayette_Scope.pdf
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				Queue
+ 			</td>
+ 			<td>
+ 				https://pdf-queue.apps-zb.homedepot.com/health
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				Generator
+ 			</td>
+ 			<td>
+ 				https://generate-pdf.apps-zb.homedepot.com/health 
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				RenoWalkLite
+ 			</td>
+ 			<td>
+ 				https://renowalklite.apps-zb.homedepot.com/health
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				PassportService
+ 			</td>
+ 			<td>
+ 				https://hdapps.homedepot.com/MYTHDPassport/rs/identity/thdLogin
+ 			</td>
+ 			<td>
+ 				j_username,j_password,j_storenumber,callingProgram
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				ItemSearch
+ 			</td>
+ 			<td>
+ 				https://api.homedepot.com/v2/catalog/products/sku?type=JSON&show=info,media,shipping,promotions,pricing&key=nlIA1wKBs18wAiPvp0nxU1LyhEqG9GxL&storeId=0121&itemId=202091220
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				KeywordSearch
+ 			</td>
+ 			<td>
+ 				https://api.homedepot.com/SearchNav/v2/search?keyword=2x4&key=nlIA1wKBs18wAiPvp0nxU1LyhEqG9GxL&startindex=0&pagesize=1&storeid=1749
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>	
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				StoreLookUp
+ 			</td>
+ 			<td>
+ 				https://api.homedepot.com/StoreSearchServices/v2/storesearch?zipcode=30736&radius=50&page=1&key=nlIA1wKBs18wAiPvp0nxU1LyhEqG9GxL&type=json
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				RenoLinkAuth
+ 			</td>
+ 			<td>
+ 				https://test.salesforce.com/services/oauth2/token?&grant_type=password&client_id=3MVG9Oe7T3Ol0ea4MKj.BsaoVl6lAb5HF_SaYzMTEapU.lNBtkL3rPL9Qhw80ZG9iSNtMWgjKajkTBs5SEUue&client_secret=3867702026752240547&username=rsss@hd.com.uat&password=ithrsorg2prodHmNXLA18D3gE6M6fdgj81E1NL
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 		<tr>
+ 			<td>
+ 				COMOrders
+ 			</td>
+ 			<td>
+ 				http://multichannel-custom.homedepot.com/COMOrder/rs/getOrderDetail
+ 			</td>
+ 			<td>
+ 				N/A
+ 			</td>
+ 			<td>5000</td>
+ 			<td>4000</td>
+ 			<td>5</td>
+ 			<td>10</td>
+ 		</tr>
+ 	</table>
+ 	
+ 	<!-- Iframe src="https://webapps.homedepot.com/gridstats/?type=Application&value=iconxTC7&container=mmhsiconxsvcsTC7&module=ContainerInfo&server=gata0504" height="500" width="1700"></iframe-->
+ </body>
+ </html>
+  

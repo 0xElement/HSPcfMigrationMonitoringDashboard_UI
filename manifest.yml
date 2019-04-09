@@ -1,0 +1,10 @@
+---
+applications:
+- name: homeservicemonitoring
+  disk_quota: 768M
+  memory: 768M
+  path: target/Dashboard_UI-0.0.1.war
+  env:
+   monitoremail.sendTo: chirag_naik@homedepot.com,madhu_jeyapalan@homedepot.com,riyaz_shaik@homedepot.com,ashutosh_sharma@homedepot.com
+   monitoremail.from: home_services_monito@homedepot.com
+   monitoremail.subject: "ATTENTION: Home Depot Page!"
